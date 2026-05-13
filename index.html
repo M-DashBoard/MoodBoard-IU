@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Mood Board — الجامعة الإسلامية بالمدينة المنورة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:wght@400;700;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a1a;
+  --paper:#f3ece0;
+  --paper-2:#e8dec9;
+  --basalt:#1f1d1a;
+  --terra:#8a4a32;
+  --sand:#c9a86b;
+  --green:#3f5742;
+  --gold:#c9a157;
+  --rule:#d9cbb1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--paper);color:var(--ink);font-family:'Tajawal',sans-serif;line-height:1.6;font-size:15px;overflow-x:hidden}
+body{max-width:1280px;margin:0 auto;padding:32px 28px 60px}
+
+/* Title block */
+.title-block{
+  background:linear-gradient(180deg, #2a221a 0%, #1d1813 100%);
+  color:#f3ece0;
+  border-radius:18px;
+  padding:42px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden;
+  border:1px solid #38302a;
+}
+.title-block::before{
+  content:"";position:absolute;left:-100px;top:-100px;width:280px;height:280px;
+  border-radius:50%;border:1px solid rgba(201,161,87,.22);
+}
+.title-block::after{
+  content:"";position:absolute;left:-80px;top:-80px;width:240px;height:240px;
+  border-radius:50%;border:1px dashed rgba(201,161,87,.18);
+}
+.eyebrow{font-family:'Amiri',serif;color:var(--gold);font-size:16px;letter-spacing:.12em;margin-bottom:10px}
+.title-block h1{font-size:48px;line-height:1.15;font-weight:900;margin-bottom:10px;letter-spacing:-.01em}
+.title-block .sub{color:#d6b880;font-size:18px;font-family:'Amiri',serif}
+.title-block .desc{margin-top:18px;font-size:15px;color:rgba(243,236,224,.78);max-width:780px;line-height:1.8}
+
+/* Major sections */
+.chapter{margin-bottom:42px}
+.chapter-head{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--basalt)}
+.chapter-num{font-family:'Amiri',serif;color:var(--terra);font-size:18px;font-weight:700}
+.chapter-head h2{font-size:26px;font-weight:700;color:var(--basalt);letter-spacing:-.01em}
+.chapter-head .ar{font-family:'Amiri',serif;font-size:16px;color:#7a6a52;margin-right:auto}
+
+/* Mood grid — collage style */
+.mood{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;grid-auto-rows:80px}
+.tile{border-radius:10px;overflow:hidden;position:relative;box-shadow:0 6px 18px rgba(0,0,0,.07);background:#fff;border:1px solid #e6dcc4}
+.tile img{width:100%;height:100%;display:block;object-fit:cover}
+.tile .cap{
+  position:absolute;left:0;right:0;bottom:0;
+  background:linear-gradient(180deg,transparent 0%,rgba(20,18,15,.75) 100%);
+  color:#fff;padding:16px 14px 10px;font-size:12px;font-family:'Tajawal',sans-serif;font-weight:500;
+}
+
+/* Tile spans */
+.s-1{grid-column:span 3;grid-row:span 3}
+.s-2{grid-column:span 4;grid-row:span 4}
+.s-3{grid-column:span 5;grid-row:span 4}
+.s-4{grid-column:span 4;grid-row:span 3}
+.s-5{grid-column:span 6;grid-row:span 4}
+.s-6{grid-column:span 3;grid-row:span 4}
+.s-tall{grid-column:span 3;grid-row:span 5}
+.s-wide{grid-column:span 6;grid-row:span 3}
+.s-sq3{grid-column:span 3;grid-row:span 3}
+.s-sq4{grid-column:span 4;grid-row:span 3}
+
+/* Text tile */
+.tile.text{background:#fff;color:#3a2f22;display:flex;flex-direction:column;justify-content:center;padding:18px 22px}
+.tile.text h3{font-family:'Amiri',serif;font-size:22px;color:var(--terra);margin-bottom:8px;line-height:1.3}
+.tile.text p{font-size:13px;line-height:1.7;color:#4a3f2e}
+.tile.dark{background:linear-gradient(135deg,#2a221a,#1d1813);color:#d6b880}
+.tile.dark h3{color:#f3ece0;font-family:'Amiri',serif;font-size:22px;margin-bottom:8px}
+.tile.dark p{color:rgba(214,184,128,.85)}
+
+.tile.swatch{display:flex;flex-direction:column;justify-content:flex-end;color:#fff;padding:12px 14px;font-family:'Amiri',serif}
+.tile.swatch b{display:block;font-size:18px;letter-spacing:.05em;margin-bottom:2px}
+.tile.swatch span{font-size:11px;font-family:'Tajawal',sans-serif;opacity:.85}
+
+/* Color row */
+.color-strip{display:grid;grid-template-columns:repeat(10,1fr);gap:6px;margin:12px 0 18px}
+.color-strip .chip{height:90px;border-radius:8px;position:relative;overflow:hidden}
+.color-strip .chip span{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.92);padding:5px 8px;font-size:11px;text-align:center;color:#333;font-family:'Amiri',serif}
+
+/* Materials row */
+.mat-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:12px 0 18px}
+.mat-chip{aspect-ratio:1/1.15;border-radius:10px;overflow:hidden;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.06);border:1px solid #e6dcc4}
+.mat-chip .swatch-bg{position:absolute;inset:0}
+.mat-chip .lbl{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);padding:8px 10px;font-size:12px;text-align:center;color:#3a2f22}
+.mat-chip .lbl b{display:block;font-family:'Amiri',serif;font-size:14px;margin-bottom:1px}
+
+/* Concept cards */
+.concepts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+.concept{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e6dcc4;display:flex;flex-direction:column}
+.concept img{width:100%;aspect-ratio:5/4;object-fit:cover}
+.concept .body{padding:14px 18px 18px}
+.concept h4{color:var(--terra);font-family:'Amiri',serif;font-size:20px;margin-bottom:6px}
+.concept p{font-size:13px;color:#4a3f2e;line-height:1.7}
+
+/* SVG icon strip */
+.icon-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:14px 0}
+.icon{background:#fff;border:1px solid #e6dcc4;border-radius:10px;padding:14px;text-align:center;font-size:12px;color:#4a3f2e}
+.icon svg{width:60px;height:60px;display:block;margin:0 auto 6px}
+.icon b{display:block;font-family:'Amiri',serif;color:var(--terra);font-size:14px;margin-bottom:2px}
+
+/* Footer */
+footer{margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);text-align:center;color:#6b5e47;font-size:13px}
+
+@media print{
+  body{max-width:none;padding:14mm}
+  .chapter{break-inside:avoid}
+  .mood{break-inside:avoid}
+  .title-block{break-after:page}
+}
+@media (max-width:980px){
+  .mood{grid-template-columns:repeat(6,1fr);grid-auto-rows:90px}
+  .s-1,.s-2,.s-3,.s-4,.s-5,.s-6,.s-tall,.s-wide,.s-sq3,.s-sq4{grid-column:span 3;grid-row:span 3}
+  .color-strip{grid-template-columns:repeat(5,1fr)}
+  .mat-row,.concepts,.icon-strip{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TITLE ===== -->
+<div class="title-block">
+  <div class="eyebrow">۞ MOOD BOARD ۞ Madinah Visual Identity ۞</div>
+  <h1>لوحة الإلهام البصري</h1>
+  <div class="sub">المباني والفراغات الجديدة — أرض الجامعة الإسلامية وامتداد طريق الملك عبدالعزيز</div>
+  <div class="desc">
+    هذه اللوحة تجمع بين الواقع الحالي للحرم الجامعي (يميناً)، والإطار الإرشادي
+    لعمارة المدينة المنورة، والمواد والألوان والعناصر التي ستشكّل لغة التصميم
+    القادمة. اللوحة تُقرأ كمجموعة تأملات متجاورة: ما هو موجود — ما هو مرجعي —
+    وما يجب أن يكون.
+  </div>
+</div>
+
+<!-- ===== CH1: SPIRIT OF PLACE ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۱</span>
+    <h2>روح المكان</h2>
+    <span class="ar">Spirit of Place</span>
+  </div>
+
+  <div class="mood">
+    <div class="tile s-3"><img src="assets/01_main_gate_arch.jpg"><div class="cap">البوابة الرئيسية للجامعة — قوس مرتفع وحجر مخطّط</div></div>
+    <div class="tile s-2"><img src="assets/04_mosque_minaret.jpg"><div class="cap">المسجد المركزي — القبة والمنارة</div></div>
+    <div class="tile text dark s-4">
+      <h3>أرضٌ بركانيّة،<br>وعمارةٌ كلسيّة</h3>
+      <p>المدينة المنورة تقوم بين الحرّات السوداء ووديان قناة العقيق الفاتحة. عمارتها التاريخية ولدت من هذا التناقض: قاعدة بازلت داكنة، وجسم بياض كلسي مصفر، وقمة منقوشة. كل مبنى جديد يحمل هذا الإيقاع الثلاثي.</p>
+    </div>
+    <div class="tile s-3"><img src="assets/15_landscape_mountain.jpg"><div class="cap">جبال الحرّات تشكّل الخلفية البصرية الدائمة</div></div>
+    <div class="tile s-2"><img src="assets/05_grand_entry_gate.jpg"><div class="cap">بوابة فرعية بحرفية عالية — مرجعية للحلية</div></div>
+    <div class="tile s-3"><img src="assets/19_palm_avenue.jpg"><div class="cap">امتداد النخيل ينظّم الفراغ ويرسم محاوره</div></div>
+  </div>
+</section>
+
+<!-- ===== CH2: COLORS ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۲</span>
+    <h2>لوحة الألوان</h2>
+    <span class="ar">RAL Palette · Madinah</span>
+  </div>
+
+  <h4 style="font-family:'Amiri',serif;color:var(--terra);margin-bottom:6px;font-size:18px">الألوان الأساسية · Off-white</h4>
+  <div class="color-strip">
+    <div class="chip" style="background:#f1ece1"><span>RAL 9001</span></div>
+    <div class="chip" style="background:#e5e4df"><span>RAL 9016</span></div>
+    <div class="chip" style="background:#f7f3eb"><span>RAL 9010</span></div>
+    <div class="chip" style="background:#e4d6a7"><span>RAL 1015</span></div>
+    <div class="chip" style="background:#dcc88d"><span>RAL 1014</span></div>
+    <div class="chip" style="background:#ddc173"><span>RAL 1011</span></div>
+    <div class="chip" style="background:#daa520"><span>RAL 1036</span></div>
+    <div class="chip" style="background:#c1b18f"><span>RAL 1000</span></div>
+    <div class="chip" style="background:#bfa97f"><span>WALL TONE</span></div>
+    <div class="chip" style="background:#a8956a"><span>SAND</span></div>
+  </div>
+
+  <h4 style="font-family:'Amiri',serif;color:var(--terra);margin-bottom:6px;font-size:18px">قاعدة البازلت · Basalt Base</h4>
+  <div class="color-strip">
+    <div class="chip" style="background:#3d3d3a"><span>RAL 7013</span></div>
+    <div class="chip" style="background:#4a4a4a"><span>RAL 7033</span></div>
+    <div class="chip" style="background:#777767"><span>RAL 7040</span></div>
+    <div class="chip" style="background:#7a7977"><span>RAL 7047</span></div>
+    <div class="chip" style="background:#4f4940"><span>RAL 7045</span></div>
+    <div class="chip" style="background:#39352d"><span>RAL 8019</span></div>
+    <div class="chip" style="background:#2a2620"><span>BASALT</span></div>
+    <div class="chip" style="background:#1f1f1f"><span>HARRAT</span></div>
+    <div class="chip" style="background:#1a1a1c"><span>VOLCANIC</span></div>
+    <div class="chip" style="background:#5e564b"><span>STONE-DARK</span></div>
+  </div>
+
+  <h4 style="font-family:'Amiri',serif;color:var(--terra);margin-bottom:6px;font-size:18px">الألوان المساعدة · Accents (≤ ١٥٪)</h4>
+  <div class="color-strip">
+    <div class="chip" style="background:#586547"><span>RAL 6019</span></div>
+    <div class="chip" style="background:#3a563b"><span>RAL 6021</span></div>
+    <div class="chip" style="background:#384a35"><span>RAL 6027</span></div>
+    <div class="chip" style="background:#5d6e57"><span>OLIVE</span></div>
+    <div class="chip" style="background:#724d36"><span>RAL 8024</span></div>
+    <div class="chip" style="background:#7e6849"><span>RAL 8025</span></div>
+    <div class="chip" style="background:#735b3e"><span>RAL 8028</span></div>
+    <div class="chip" style="background:#3b3a51"><span>RAL 4012</span></div>
+    <div class="chip" style="background:#c9a157"><span>BRASS</span></div>
+    <div class="chip" style="background:#a04a2e"><span>HARRAT-RED</span></div>
+  </div>
+</section>
+
+<!-- ===== CH3: MATERIALS ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۳</span>
+    <h2>المواد والملمس</h2>
+    <span class="ar">Material Palette</span>
+  </div>
+
+  <div class="mat-row">
+    <div class="mat-chip"><div class="swatch-bg" style="background:radial-gradient(#3a3a3a,#1c1c1c)"></div><div class="lbl"><b>بازلت أسود</b>Basalt — قاعدة</div></div>
+    <div class="mat-chip"><div class="swatch-bg" style="background:linear-gradient(135deg,#e9dfc6,#c9b88e)"></div><div class="lbl"><b>حجر المدينة</b>Madinah Stone</div></div>
+    <div class="mat-chip"><div class="swatch-bg" style="background:linear-gradient(135deg,#9c4f2f,#6a2f1c)"></div><div class="lbl"><b>طوب الأجور</b>Harrat Brick</div></div>
+    <div class="mat-chip"><div class="swatch-bg" style="background:linear-gradient(135deg,#8b6f4e,#5d4530)"></div><div class="lbl"><b>الخشب المنحوت</b>Carved Wood</div></div>
+    <div class="mat-chip"><div class="swatch-bg" style="background:linear-gradient(135deg,#f7f3eb,#e5dfd1)"></div><div class="lbl"><b>الجص الأبيض</b>White Stucco</div></div>
+    <div class="mat-chip"><div class="swatch-bg" style="background:linear-gradient(135deg,#cab886,#a89461)"></div><div class="lbl"><b>الحصى</b>Pebble Mix</div></div>
+  </div>
+
+  <div class="mood">
+    <div class="tile s-2"><img src="assets/ADG_p013-13.jpg"><div class="cap">لوحة المواد المعتمدة في دليل ADG — بازلت / Off-white / خشب</div></div>
+    <div class="tile s-3"><img src="assets/WAJ_p020-020.jpg"><div class="cap">حجر المدينة، الحرّات، الجبال والوديان — المرجع الجيولوجي</div></div>
+    <div class="tile s-3"><img src="assets/12_red_basalt.jpg"><div class="cap">جدار بطوب فخاري محمر مع بياض — استلهام معاصر للحرّات</div></div>
+    <div class="tile s-4"><img src="assets/11_mashrabiya_modern.jpg"><div class="cap">قاعدة طوب وكتلة بيضاء وأشجار محلية — تركيب موجود في الحرم يستحق التطوير</div></div>
+  </div>
+</section>
+
+<!-- ===== CH4: ARCH ELEMENTS ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰٤</span>
+    <h2>قاموس العناصر المعمارية</h2>
+    <span class="ar">Architectural Vocabulary</span>
+  </div>
+
+  <div class="icon-strip">
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><path d="M20 80 L20 50 Q20 25 50 25 Q80 25 80 50 L80 80 L70 80 L70 55 Q70 35 50 35 Q30 35 30 55 L30 80 Z" fill="#3a2f22"/></svg>
+      <b>القوس المخموس</b>للمداخل الرئيسية
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><path d="M20 80 L20 50 A30 30 0 0 1 80 50 L80 80 L70 80 L70 55 A20 20 0 0 0 30 55 L30 80 Z" fill="#3a2f22"/></svg>
+      <b>القوس الدائري</b>الأبواب الفرعية
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><path d="M20 80 L20 50 L35 35 L50 30 L65 35 L80 50 L80 80 L70 80 L70 55 L60 45 L50 42 L40 45 L30 55 L30 80 Z" fill="#3a2f22"/></svg>
+      <b>قوس الموتور</b>النوافذ والشرفات
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><rect x="20" y="20" width="60" height="60" fill="#3a2f22"/><g stroke="#f3ece0" stroke-width="2"><line x1="30" y1="20" x2="30" y2="80"/><line x1="40" y1="20" x2="40" y2="80"/><line x1="50" y1="20" x2="50" y2="80"/><line x1="60" y1="20" x2="60" y2="80"/><line x1="70" y1="20" x2="70" y2="80"/><line x1="20" y1="35" x2="80" y2="35"/><line x1="20" y1="50" x2="80" y2="50"/><line x1="20" y1="65" x2="80" y2="65"/></g></svg>
+      <b>الروشان</b>تظليل وخصوصية
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><g fill="#3a2f22"><rect x="20" y="35" width="10" height="10"/><rect x="40" y="35" width="10" height="10"/><rect x="60" y="35" width="10" height="10"/><rect x="20" y="55" width="10" height="10"/><rect x="40" y="55" width="10" height="10"/><rect x="60" y="55" width="10" height="10"/><rect x="20" y="20" width="60" height="6"/><rect x="20" y="74" width="60" height="6"/></g></svg>
+      <b>الشبوك</b>القمة المخرّمة
+    </div>
+    <div class="icon">
+      <svg viewBox="0 0 100 100"><path d="M20 80 L25 60 L30 70 L35 55 L40 65 L45 50 L50 60 L55 50 L60 65 L65 55 L70 70 L75 60 L80 80 Z" fill="#3a2f22"/></svg>
+      <b>العرائس</b>تتويج الواجهة
+    </div>
+  </div>
+
+  <div class="mood">
+    <div class="tile s-2"><img src="assets/WAJ_p016-016.jpg"><div class="cap">نسب الأقواس المعتمدة لعمارة المدينة المنورة</div></div>
+    <div class="tile s-3"><img src="assets/WAJ_p017-017.jpg"><div class="cap">نسب النوافذ ووحدة (ن) النموذجية للرواشين</div></div>
+    <div class="tile s-3"><img src="assets/WAJ_p018-018.jpg"><div class="cap">نسب الأبواب — ١١×١١ حتى ١٩×١٩ وحدة</div></div>
+    <div class="tile s-4"><img src="assets/WAJ_p019-019.jpg"><div class="cap">الشبوك والعرائس — تتويج الواجهة</div></div>
+  </div>
+</section>
+
+<!-- ===== CH5: COMPOSITION ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰٥</span>
+    <h2>قواعد التكوين</h2>
+    <span class="ar">Composition Rules</span>
+  </div>
+
+  <div class="mood">
+    <div class="tile text s-4">
+      <h3>قاعدة / وسط / قمة</h3>
+      <p>كل واجهة تُقرأ في ثلاثة مستويات: قاعدة بازلت ٠.٦–٤ م، جسم بياض كلسي بنوافذ رأسية، قمة مدرّجة. هذه ليست توصية شكلية، بل قاعدة لتأكيد ارتباط المبنى بالأرض ومنحه هيبة.</p>
+    </div>
+    <div class="tile s-2"><img src="assets/ADG_p010-10.jpg"><div class="cap">عناصر الطراز التقليدي — أبعاد ونسب القاعدة والوسط والقمة</div></div>
+    <div class="tile s-3"><img src="assets/ADG_p017-17.jpg"><div class="cap">نموذج توضيحي للطراز التقليدي — تطبيق متكامل للقواعد</div></div>
+    <div class="tile s-3"><img src="assets/ADG_p019-19.jpg"><div class="cap">نموذج معاصر — تجريد العناصر التقليدية بنفس المنطق</div></div>
+    <div class="tile text dark s-4">
+      <h3>إيقاع الفتحات</h3>
+      <p>الفتحات تأتي مستطيلة رأسية، محاذية فوق بعضها، بنسبة ≤ ٤٥٪ من الواجهة الأمامية و≤ ١٥٪ من الجانبية. الإيقاع المنتظم يخلق شخصية الشارع لا شخصية المبنى وحده.</p>
+    </div>
+    <div class="tile s-2"><img src="assets/ADG_p008-08.jpg"><div class="cap">قواعد التكوين العامة — التنظيم الرأسي والإطارات</div></div>
+  </div>
+</section>
+
+<!-- ===== CH6: NEW BUILDINGS DIRECTION ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰٦</span>
+    <h2>اتجاه المباني الجديدة</h2>
+    <span class="ar">Direction for New Buildings</span>
+  </div>
+
+  <div class="concepts">
+    <div class="concept">
+      <img src="assets/ADG_p017-17.jpg">
+      <div class="body">
+        <h4>المباني الرمزية</h4>
+        <p>المسجد · المكتبة · قاعة المؤتمرات · البوابات الرئيسية — طراز <b>تقليدي</b> صرف بقاعدة بازلت ورواشين منحوتة وقباب وعرائس. تمثّل «وجه» الجامعة الرسمي.</p>
+      </div>
+    </div>
+    <div class="concept">
+      <img src="assets/ADG_p018-18.jpg">
+      <div class="body">
+        <h4>المباني الأكاديمية</h4>
+        <p>الكليات · المختبرات · القاعات الدراسية — طراز <b>انتقالي</b>: نسب تقليدية مع تبسيط الزخرفة، استخدام رواشين مجرّدة، إيقاع نوافذ منتظم، مظلات أمام المداخل.</p>
+      </div>
+    </div>
+    <div class="concept">
+      <img src="assets/ADG_p019-19.jpg">
+      <div class="body">
+        <h4>المباني الخدمية والسكن</h4>
+        <p>السكن الطلابي · مباني الخدمات · المرافق — طراز <b>معاصر</b>: تجريد العناصر التقليدية، شرائح ألومنيوم مثقّبة، أسطح مستوية، مواد محلية بمنطق حديث.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CH7: KING ABDULAZIZ EXTENSION ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۷</span>
+    <h2>امتداد الملك عبدالعزيز</h2>
+    <span class="ar">King Abdulaziz Road Extension</span>
+  </div>
+
+  <div class="mood">
+    <div class="tile s-3"><img src="assets/ROAD_p010-010.jpg"><div class="cap">الموجهات المعتمدة لطريق الملك عبدالعزيز — RAL 8019 · 7045 · 9010 · 7047 · 9003</div></div>
+    <div class="tile text dark s-3">
+      <h3>الحداثة على المحور الشرياني</h3>
+      <p>طريق الملك عبدالعزيز يعكس روح <b>الحداثة</b> وفق دليل المحاور الرئيسية. الواجهة الحضرية للجامعة عليه تُصمَّم بطراز انتقالي/معاصر، بحضور قوي للألومنيوم الأبيض والبازلت الداكن وأرضيات هندسية بيضاء/رمادية.</p>
+    </div>
+    <div class="tile s-3"><img src="assets/ROAD_p018-018.jpg"><div class="cap">المواد والتبليط: شريط زخرفي ٦٠×١٠، تجانس مواد، عدم انعكاس الشمس</div></div>
+    <div class="tile s-3"><img src="assets/ROAD_p019-019.jpg"><div class="cap">آليات التشجير — لبخ، مورينجا، كاسيا، يوكا، نعنع المدينة</div></div>
+    <div class="tile s-4"><img src="assets/ROAD_p021-021.jpg"><div class="cap">أثاث الشوارع — مقاعد إسمنت أبيض / خشب بزخرفة محفورة</div></div>
+    <div class="tile s-4"><img src="assets/ROAD_p022-022.jpg"><div class="cap">الإضاءة واللافتات — ألومنيوم أبيض، إنارة ٢٢٠٠–٢٧٠٠K</div></div>
+    <div class="tile s-4"><img src="assets/ROAD_p024-024.jpg"><div class="cap">الزخارف النباتية كمرجعية لتصميم الأرضيات والشرائط</div></div>
+  </div>
+</section>
+
+<!-- ===== CH8: LANDSCAPE ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۸</span>
+    <h2>اللاندسكيب والفراغات</h2>
+    <span class="ar">Landscape & Public Spaces</span>
+  </div>
+
+  <div class="mood">
+    <div class="tile s-2"><img src="assets/13_palms_courtyard.jpg"><div class="cap">صفوف النخيل في الحرم — أساس لمحاور المشاة الجديدة</div></div>
+    <div class="tile s-3"><img src="assets/14_landscape_garden.jpg"><div class="cap">حدائق بأحواض حصى ونباتات محلية موفّرة للمياه</div></div>
+    <div class="tile s-3"><img src="assets/18_stone_planter.jpg"><div class="cap">أحواض حجرية تربط البناء بالأرض — نموذج للتطبيق</div></div>
+    <div class="tile text s-4">
+      <h3>زراعة فطرية ووظيفية</h3>
+      <p>كل شجرة مظللة، كل شجيرة دالة على الموسم، وكل غطاء أرضي محلي. القبار، العوسج، الإسليح، الخزامى، النخيل، دوم طيبة، المورينجا — هذه ليست خيارات جمالية، بل قرارات بيئية.</p>
+    </div>
+    <div class="tile s-3"><img src="assets/ROAD_p019-019.jpg"><div class="cap">الأشجار المعتمدة وفق دليل المحاور — مرجعية كاملة</div></div>
+    <div class="tile s-2"><img src="assets/19_palm_avenue.jpg"><div class="cap">امتداد نخيل يقسّم الفراغ ويفتح المنظور</div></div>
+  </div>
+</section>
+
+<!-- ===== CH9: WHAT TO AVOID ===== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <span class="chapter-num">۰۹</span>
+    <h2>ما يجب تجنّبه</h2>
+    <span class="ar">What to Avoid</span>
+  </div>
+
+  <div class="mood">
+    <div class="tile text dark s-6">
+      <h3>أخطاء شائعة في الحرم القائم<br>يجب تجنّبها في الجديد</h3>
+      <p>
+        ✗ السواتر الدوارة المعدنية (Shutters) المكشوفة على الواجهات.<br>
+        ✗ وحدات التكييف وخزانات المياه ظاهرة على الأسطح.<br>
+        ✗ الأسلاك الشائكة وأسوار المعدن الرخيصة.<br>
+        ✗ شاشات LED كبيرة على الواجهات.<br>
+        ✗ الزجاج العاكس بنسبة كبيرة (يبهر المشاة والسائقين).<br>
+        ✗ ألوان قوية ومتنافرة (أحمر، أزرق، أصفر فاقع).<br>
+        ✗ زخارف تقليدية موضوعة بنسب خاطئة أو في غير مكانها.<br>
+        ✗ كتل صندوقية كبيرة بلا تدرّج أو تتويج.
+      </p>
+    </div>
+    <div class="tile s-3"><img src="assets/ADG_p016-16.jpg"><div class="cap">المسموح والممنوع وفق ADG — مرجعية مباشرة قابلة للتطبيق</div></div>
+    <div class="tile text s-3">
+      <h3>والاتجاه المعاكس</h3>
+      <p>
+        ✓ إخفاء التكييف خلف سواتر معمارية.<br>
+        ✓ مواد طبيعية ومحلية بنسب صحيحة.<br>
+        ✓ إيقاع منتظم وألوان مقيّدة.<br>
+        ✓ لافتات بأحرف بارزة بحجم معتدل.<br>
+        ✓ تكامل اللاندسكيب مع المعمار من البداية.<br>
+        ✓ استخدام الأنماط التقليدية بفهم نسبها.<br>
+        ✓ تتويج الكتل بدلاً من قطعها أفقياً.<br>
+        ✓ مقياس إنساني للمشاة في المستوى الأرضي.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== END ===== -->
+<footer>
+  المرجعيات: دليل عمارة المدينة المنورة (ADG_05) · موجهات الهوية العمرانية للمحاور الرئيسية · دليل عناصر الطريق والأرصفة · تحليل ١٤٨ صورة موقعية للحرم الجامعي القائم.
+  <br>الإصدار ١.٠ — مايو ٢٠٢٦
+</footer>
+
+</body>
+</html>
